@@ -1,0 +1,7 @@
+#!/bin/sh
+transmission-remote -l |grep %| awk '{print $2, $10, $11}'|
+	sed "s/Downloading/🔽/g;
+	s/Stopped/🛑/g;
+	s/Seeding/🌱/g;
+	s/Idle/⌛️/g;
+	s/Uploading/🔼/g;"
