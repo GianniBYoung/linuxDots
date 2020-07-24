@@ -460,14 +460,14 @@ bar {
 
 
 colors {
-        background #556357
+        background #380554
         statusline #f9e8f7
-        separator  #666666
+        separator  #7b54e9
         #                     border  backgr. text
-        focused_workspace     #a9a9a9 #5f676a #00FFFF
-        active_workspace      #a9a9a9 #5f676a #a9a9a9
-        inactive_workspace    #a9a9a9 #222222 #a9a9a9
-        urgent_workspace      #a9a9a9 #d42121 #FFFFFF
+        focused_workspace     #7b54e9 #5f676a #00FFFF
+        active_workspace      #7b54e9 #5f676a #a9a9a9
+        inactive_workspace    #7b54e9 #222222 #a9a9a9
+        urgent_workspace      #7b54e9 #d42121 #FFFFFF
         }
 
     }
