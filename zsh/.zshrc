@@ -1,5 +1,5 @@
 export ZSH=/usr/share/oh-my-zsh/
-TZ='America/Los_Angeles'; export TZ
+TZ='America/Menominee'; export TZ
 
 # Set name of the theme to load --- if set to "random", it will
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -110,10 +110,11 @@ ex ()
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
 
 export PATH=/home/gianni/.local/bin:$PATHexport PATH=~/bin:$PATH
+export PATH=$PATH:/home/gianni/.bin/personal
 export PATH=$PATH:/usr/local/go/bin
 export EDITOR=nvim
 export TERMINAL=termite
-alias ripme='python3 /home/gianni/.local/bin/bulk-downloader-for-reddit/script.py --saved     --quit --directory /media/ext-drive/ripme ; notify-send "ripme ran"'
+alias ripme='python3 /home/gianni/.local/bin/bulk-downloader-for-reddit/script.py --saved --quit --no-dupes --directory /media/torrent-drive/ripme; notify-send "ripme ran"'
 alias trans='transmission-remote'
 alias transl='transmission-remote -l'
 alias tkill='killall transmission-daemon'
@@ -124,6 +125,8 @@ alias tset='nvim ./.config/transmission/settings.json'
 alias media='cd ../../media/ext-drive'
 alias nrc='nvim .zshrc'
 alias cp= 'cp -iv'
+alias vim='nvim'
 alias irip='python Documents/code/python/PillsburyDoughBot/doughbot.py MancysMuses &'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias pbup='rsync -avhP /media/ext-drive/ripme/ /media/torrent-drive/ripme'
+alias rss='newsboat'
