@@ -130,3 +130,5 @@ alias irip='python Documents/code/python/PillsburyDoughBot/doughbot.py MancysMus
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias pbup='rsync -avhP /media/ext-drive/ripme/ /media/torrent-drive/ripme'
 alias rss='newsboat'
+alias nv='nvim'
+alias epan='espanso'

@@ -1,2 +1,6 @@
 #!/usr/bin/sh
 date | awk '{print $1, $3, $4}'
+
+if [ $BLOCK_BUTTON ]; then
+    notify-send "$(cal)"
+fi

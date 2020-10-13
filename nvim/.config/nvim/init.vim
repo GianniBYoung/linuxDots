@@ -33,3 +33,7 @@ set splitbelow splitright
 autocmd BufWritePre * %s/\\s\+$//e
 let g:ranger_map_keys = 0
 map <leader>f :Ranger<CR>
+
+autocmd BufWritePost *default.yml !espanso restart
+set showmatch
+set matchtime=3

@@ -1,0 +1,96 @@
+# espanso configuration file
+
+# This is the default configuration file, change it as you like it
+# You can refer to the official documentation:
+# https://espanso.org/docs/
+
+# Matches are the substitution rules, when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # Simple text replacement
+  - trigger: ":espanso"
+    replace: "Hi there!"
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Shell commands
+  - trigger: ":shell"
+    replace: "{{output}}"
+    vars:
+      - name: output
+        type: shell
+        params:
+          cmd: "echo Hello from your shell"
+
+
+  - trigger: "yyog"
+    replace: "younggianniguy@gmail.com"
+
+  - trigger: "yyoy"
+    replace: "younggianniguy@yahoo.com"
+
+    #Prints ip address
+  - trigger: ":ipp"
+    replace: "{{output}}"
+    vars:
+        - name: output
+          type: shell
+          params:
+            cmd: "curl https://ifconfig.me/"
+    #Prints current working directory
+
+  - trigger: ":pwd"
+    replace: "{{output}}"
+    vars:
+        - name: output
+          type: shell
+          params:
+             cmd: "pwd"
+
+  - trigger: ":tdrive"
+    replace: "/media/torrent-drive/"
+
+  - trigger: ":hash"
+    replace: "#!/bin/bash"
+
+    #spelling corrections
+  - triggers: ["neccessary", "necessarry", "neccessarry"]
+    replace: "necessary"
+    word: true
+
+  - triggers: ["begginning", "beggining"]
+    replace: "beginning"
+    word: true
+
+  - trigger: "defn" 
+    replace: "definition"
+    word: true
+
+    #scripts
+  - trigger: ":dukem"
+    replace: "{{output}}"
+    vars:
+     - name: output
+       type: script
+       params:
+         args:
+             - sh
+             - /home/gianni/.config/espanso/scripts/espanso-scripts/duke-nukem-quotes/random-duke-quote.sh
+ 
+  - trigger: ":playing"
+    replace: "{{output}}"
+    vars:
+     - name: output
+       type: script
+       params:
+         args:
+             - sh
+             - /home/gianni/.config/espanso/scripts/espanso-scripts/now-playing/now-playing.sh
+ 
