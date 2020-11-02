@@ -15,7 +15,7 @@
     "cache-size-mb": 4,
     "compact-view": false,
     "dht-enabled": false,
-    "download-dir": "/media/torrent-drive/completed",
+    "download-dir": "/media/unit/completed",
     "download-queue-enabled": true,
     "download-queue-size": 5,
     "encryption": 1,

@@ -5,9 +5,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'frazrepo/vim-rainbow'
 call plug#end()
 
 let g:Hexokinase_highlighters = [ 'virtual' ]
+let g:deoplete#enable_at_startup = 1
+let g:rainbow_active = 1
 
 inoremap ii <Esc> 
 let mapleader=" "
@@ -37,3 +41,6 @@ map <leader>f :Ranger<CR>
 autocmd BufWritePost *default.yml !espanso restart
 set showmatch
 set matchtime=3
+
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"

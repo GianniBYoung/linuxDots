@@ -240,7 +240,7 @@ exec --no-startup-id nitrogen --restore
 
 # terminal
 bindsym $mod+Return exec --no-startup-id termite;focus
-bindsym $mod+CTRL+Return exec --no-startup-id termite;focus
+bindsym $mod+CTRL+Return exec --no-startup-id urxvt;focus
 bindsym $mod+F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
 #System monitor
@@ -390,7 +390,7 @@ for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 5
 #smart_gaps on
-#smart_borders on
+smart_borders on
 
 #####################################################################################################################
 #################                          i3 gaps change                                           #################
