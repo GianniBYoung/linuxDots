@@ -1,43 +1,25 @@
-# $Mod = WINDOWS key or Super key or Mod4
 # Mod1 = ALT key
-# Control = CTRL key
-# Shift = SHIFT key
-# Escape = ESCAPE key
-# Return = ENTER or RETURN key
-# KP_Enter = Keypad Enter
-# Pause = PAUSE key
-# Print = PRINT key
-# Tab = TAB key
-
-#####################################################################################################################
-#################                          Define the $mod variable/key                             #################
-#####################################################################################################################
-
-# Key to rule them all : Super(Windows) or Alt key?
-
 # Mod4 = Windows or Super key on keyboard
-# Mod1 = Alt key on keyboard
 
-#Set Alt key
-#set $mod Mod1
-
-#set Super key
 set $mod Mod4
-
-#####################################################################################################################
-#################                          Define the movements keys - variables                    #################
-#####################################################################################################################
-
 set $up k
 set $down j
 set $left h
 set $right l
+
+
+set $up Up
+set $down Down
+set $left Left
+set $right Right
 
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
 
 exec --no-startup-id xrandr --output HDMI-A-0 --auto
+
+#exec --no-startup-id xrandr --output HDMI-A-0 --mode 3440x1440 --rate 59.94
 
 set $firstMonitor HDMI1
 
@@ -61,16 +43,8 @@ bindsym $mod+Shift+3 move container to workspace 3; workspace 3
 bindsym $mod+Shift+4 move container to workspace 4; workspace 4
 bindsym $mod+Shift+5 move container to workspace 5; workspace 5
 
-#####################################################################################################################
-#################                          3 menu's in arcolinux                                     #################
-#####################################################################################################################
-
 # start dmenu
 bindsym $mod+d exec --no-startup-id dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NimbusSans:bold:pixelsize=14'
-
-#####################################################################################################################
-#################                          how to exit, logoff, suspend, ...                        #################
-#####################################################################################################################
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -93,9 +67,6 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-#####################################################################################################################
-#################                          reload changed configuration                             #################
-#####################################################################################################################
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -103,11 +74,11 @@ bindsym $mod+Shift+r restart
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-#####################################################################################################################
-#################                          Stopping an application                                  #################
-#####################################################################################################################
-
+# Kills focused application
 bindsym $mod+q kill
+
+
+
 
 #####################################################################################################################
 #################                          Moving around in i3                                      #################
@@ -120,42 +91,32 @@ floating_modifier $mod
 bindsym $mod+Shift+space floating toggle
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
+
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-
-#####################################################################################################################
-#################                          moving around workspaces                                 #################
-#####################################################################################################################
-
-# next/previous workspace
-
-bindsym Mod1+Tab workspace next
-bindsym Mod1+Shift+Tab workspace prev
 bindsym $mod+Tab workspace back_and_forth
 
-# switch to workspace with urgent window automatically
-#for_window [urgent=latest] focus
+
+
+
 
 #####################################################################################################################
 #################                          Tiling parameters                                        #################
@@ -171,7 +132,6 @@ bindsym $mod+n split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-# Super + F in arcolinux is execute thunar
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -184,10 +144,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-#####################################################################################################################
-#################                          resize                                                   #################
-#####################################################################################################################
-
 bindsym $mod+r mode "resize"
 
 mode "resize" {
@@ -196,16 +152,13 @@ mode "resize" {
         bindsym $up         resize shrink height 10 px or 10 ppt
         bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+
+
 
 #####################################################################################################################
 #################                          choose the font                                          #################
@@ -216,7 +169,10 @@ font pango:Nimbus Sans 13
 #####################################################################################################################
 #################                          execute applications at boot time                        #################
 #####################################################################################################################
-exec --no-startup-id compStart.sh
+
+#compositor
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+
 #Authentication dialog
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
@@ -249,16 +205,17 @@ bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
 #settings
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
 
-#slimlock
-bindsym Mod1+k exec slimlock
-
 #pavucontrol
 bindsym control+mod1+u exec --no-startup-id pavucontrol
 
 #xkill
 bindsym --release $mod+Escape exec xkill
 
-#workspace related
+#dmenu emojiis
+bindsym $mod+i exec --no-startup-id /home/gianni/.bin/dmenuScripts/demoji
+
+#screenshots
+bindsym Print exec flameshot gui -p /media/ext-drive/back-ups/screens
 
 bindsym $mod+F1 exec --no-startup-id exo-open --launch webbrowser;focus
 
@@ -268,21 +225,13 @@ bindsym $mod+F3 exec --no-startup-id atom
 
 bindsym $mod+F5 exec --no-startup-id calibre
 
-bindsym $mod+F4 exec --no-startup-id rambox
-
-for_window [class="Thunar"] focus
-bindsym $mod+Shift+Return exec --no-startup-id thunar;focus
-
-bindsym $mod+F10 exec --no-startup-id spotify
-
-bindsym $mod+i exec --no-startup-id /home/gianni/.bin/dmenuScripts/demoji
 bindsym $mod+u exec --no-startup-id firefox
 
 bindsym $mod+b exec --no-startup-id termite -e ranger 
 
-#####################################################################################################################
-#################                          screenshots                                              #################
-#####################################################################################################################
+for_window [class="Pcmanfm"] focus
+bindsym $mod+Shift+Return exec --no-startup-id pcmanfm;focus
+
 
 #Spotify controls
 bindsym $mod+F6 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -291,7 +240,6 @@ bindsym $mod+F7 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spoti
 
 bindsym $mod+F8 exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
-bindsym Print exec flameshot gui -p /media/ext-drive/back-ups/screens
 
 #####################################################################################################################
 #################                          floating or tiled                                        #################
@@ -361,19 +309,12 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 # Border control
 hide_edge_borders both
-bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
-
-#changing border style
-bindsym $mod+t border normal
-bindsym $mod+y border 1pixel
 
 #new_window pixel 1
 new_window normal
-#new_window none
 
 #new_float pixel 1
 new_float normal
-#new_float none
 
 #####################################################################################################################
 #################                          Popups  control                                          #################
@@ -387,7 +328,7 @@ popup_during_fullscreen smart
 #####################################################################################################################
 
 for_window [class="^.*"] border pixel 2
-gaps inner 5
+gaps inner 8
 gaps outer 5
 #smart_gaps on
 smart_borders on
@@ -434,11 +375,6 @@ mode "$mode_gaps_outer" {
 }
 
 
-#####################################################################################################################
-#################                          compton of i3wm                                          #################
-#####################################################################################################################
-
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 
 #####################################################################################################################
 #################                          bar appearance                                           #################
@@ -449,11 +385,8 @@ bar {
     height 30
     workspace_buttons yes
     font pango:Nimbus Sans Bold 15
-
     position bottom
-
 	status_command i3blocks -c ~/.config/i3/i3blok.conf
-
 
 colors {
         background #380554

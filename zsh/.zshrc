@@ -3,7 +3,8 @@ TZ='America/Menominee'; export TZ
 
 # Set name of the theme to load --- if set to "random", it will
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-ZSH_THEME="gianu"
+#ZSH_THEME="daveverwer"
+ZSH_THEME="kolo"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -126,11 +127,10 @@ alias media='cd ../../media/ext-drive'
 alias nrc='nvim .zshrc'
 alias cp= 'cp -iv'
 alias vim='nvim'
-alias irip='python Documents/code/python/PillsburyDoughBot/doughbot.py MancysMuses &'
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias pbup='rsync -avhP /media/ext-drive/ripme/ /media/torrent-drive/ripme'
+alias pbup='rsync -avhP /media/ext-drive/ripme/ /media/unit/ripme'
 alias rss='newsboat'
 alias nv='nvim'
 alias epan='espanso'
 alias python='python3'
 alias code='cd Documents/code'
+alias copy='xsel -ib'
