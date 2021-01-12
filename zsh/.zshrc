@@ -113,8 +113,17 @@ ex ()
 export PATH=/home/gianni/.local/bin:$PATHexport PATH=~/bin:$PATH
 export PATH=$PATH:/home/gianni/.bin/personal
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/gianni/Documents/code/bash/theme.sh
 export EDITOR=nvim
-export TERMINAL=termite
+export TERMINAL=xterm-kitty
+export TERM=xterm-kitty
+
+autoload -Uz compinit
+compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+
 alias ripme='python3 /home/gianni/.local/bin/bulk-downloader-for-reddit/script.py --skip-domain youtube.com --saved --quit --no-dupes --directory /media/unit/ripme; notify-send "ripme ran"'
 alias trans='transmission-remote'
 alias transl='transmission-remote -l'
@@ -134,3 +143,8 @@ alias epan='espanso'
 alias python='python3'
 alias code='cd Documents/code'
 alias copy='xsel -ib'
+alias commitmsg='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias sqb='sqlitebrowser'
+alias gitm='git commit -m'
+alias icat="kitty +kitten icat"
+alias py='python3'

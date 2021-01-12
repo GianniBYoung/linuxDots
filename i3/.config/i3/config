@@ -195,7 +195,7 @@ exec --no-startup-id nitrogen --restore
 #####################################################################################################################
 
 # terminal
-bindsym $mod+Return exec --no-startup-id termite;focus
+bindsym $mod+Return exec --no-startup-id kitty;focus
 bindsym $mod+CTRL+Return exec --no-startup-id urxvt;focus
 bindsym $mod+F12 exec --no-startup-id xfce4-terminal --drop-down; focus
 
@@ -227,7 +227,7 @@ bindsym $mod+F5 exec --no-startup-id calibre
 
 bindsym $mod+u exec --no-startup-id firefox
 
-bindsym $mod+b exec --no-startup-id termite -e ranger 
+bindsym $mod+b exec --no-startup-id kitty -e ranger 
 
 for_window [class="Pcmanfm"] focus
 bindsym $mod+Shift+Return exec --no-startup-id pcmanfm;focus
@@ -405,7 +405,7 @@ colors {
 # class                 border  backgr. text    indicator
 client.placeholder      #242424 #242424 #242424
 client.background       #242424 #242424 #242424
-client.focused          #6790EB #00FFFF #e5e5e5 #6790EB
+client.focused          #6790EB #FF7E00 #e5e5e5 #6790EB
 client.unfocused        #222222 #222222 #aaaaaa #222222
 client.focused_inactive #222222 #222222 #a9a9a9 #222222
 client.urgent           #d42121 #d42121 #f7f7f7 #d42121
