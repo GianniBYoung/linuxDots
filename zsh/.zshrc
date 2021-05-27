@@ -1,4 +1,5 @@
 export ZSH=/usr/share/oh-my-zsh/
+export MANPAGER="nvim -c 'set ft=man' -"
 TZ='America/Menominee'; export TZ
 
 # Set name of the theme to load --- if set to "random", it will
@@ -114,29 +115,27 @@ export PATH=/home/gianni/.local/bin:$PATHexport PATH=~/bin:$PATH
 export PATH=$PATH:/home/gianni/.bin/personal
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/gianni/Documents/code/bash/theme.sh
+export PATH=$PATH:/snap/bin/
 export EDITOR=nvim
 export TERMINAL=xterm-kitty
 export TERM=xterm-kitty
-
+export CLASSPATH=".:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
+export LD_LIBRARY_PATH=/usr/local/lib
 autoload -Uz compinit
 compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+# vim mode activated
 
 
 alias ripme='python3 /home/gianni/.local/bin/bulk-downloader-for-reddit/script.py --skip-domain youtube.com --saved --quit --no-dupes --directory /media/unit/ripme; notify-send "ripme ran"'
 alias trans='transmission-remote'
 alias transl='transmission-remote -l'
-alias tkill='killall transmission-daemon'
-alias tdone='transmission-remote -l | grep 100% | awk '{print $1}'| paste -d, -s | xargs -i transmission-remote -t {} -r'
-alias xmerge='xrdb -merge ~/.Xresources'
 alias install='sudo pacman -S'
-alias tset='nvim ./.config/transmission/settings.json'
 alias media='cd ../../media/ext-drive'
 alias nrc='nvim .zshrc'
 alias cp= 'cp -iv'
 alias vim='nvim'
-alias pbup='rsync -avhP /media/ext-drive/ripme/ /media/unit/ripme'
 alias rss='newsboat'
 alias nv='nvim'
 alias epan='espanso'
@@ -148,3 +147,17 @@ alias sqb='sqlitebrowser'
 alias gitm='git commit -m'
 alias icat="kitty +kitten icat"
 alias py='python3'
+alias gitcom='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias td='transmission-daemon'
+alias s='sudo systemctl'
+alias cse='ssh gyoung@cse.unl.edu'
+alias antlr4='java -jar /home/gianni/Documents/code/antlr/hw01/antlr-4.9.1-complete.jar'
+alias grun='java org.antlr.v4.gui.TestRig'
+alias exiftool='perl /media/ext-drive/misc/downloads/Image-ExifTool-12.19/exiftool'
+alias tux='tuxi'
+
+# HSTR configuration - add this to ~/.zshrc
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor,blacklist,no-confirm,raw-history-view      # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+export HISTFILE=~/.zsh_history

@@ -36,6 +36,9 @@ matches:
   - trigger: "yyoy"
     replace: "younggianniguy@yahoo.com"
 
+  - trigger: "gprot"
+    replace: "gianniyoung@protonmail.com"
+
     #Prints ip address
   - trigger: ":ipp"
     replace: "{{output}}"

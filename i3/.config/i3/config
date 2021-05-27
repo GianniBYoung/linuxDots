@@ -18,6 +18,7 @@ set $right Right
 #####################################################################################################################
 
 exec --no-startup-id xrandr --output HDMI-A-0 --auto
+exec --no-startup-id ipfs daemon
 
 #exec --no-startup-id xrandr --output HDMI-A-0 --mode 3440x1440 --rate 59.94
 
@@ -391,9 +392,9 @@ bar {
 colors {
         background #380554
         statusline #f9e8f7
-        separator  #7b54e9
+        separator  #FF7E00 
         #                     border  backgr. text
-        focused_workspace     #7b54e9 #5f676a #00FFFF
+        focused_workspace     #7b54e9 #5f676a #FF7E00 
         active_workspace      #7b54e9 #5f676a #a9a9a9
         inactive_workspace    #7b54e9 #222222 #a9a9a9
         urgent_workspace      #7b54e9 #d42121 #FFFFFF

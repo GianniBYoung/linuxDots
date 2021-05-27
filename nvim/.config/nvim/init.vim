@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -14,6 +15,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'machakann/vim-highlightedyank'
+Plug 'justinmk/vim-sneak'
 "Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'davidhalter/jedi-vim'
@@ -32,7 +34,7 @@ let g:rainbow_active = 1
 let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
 let base16colorspace=256
-
+let g:sneak#label = 1
 inoremap ii <Esc> 
 let mapleader=" "
 :map <Leader> <Space> 
@@ -86,3 +88,20 @@ let g:wwdc16_transp_bg = 1
 highlight Pmenu ctermbg=8 guibg=#606060
 highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
 highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+
+
+
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
+
+
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+lua require'colorizer'.setup()
+lua require'colorizer'.setup()
