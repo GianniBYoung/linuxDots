@@ -1,9 +1,8 @@
 call plug#begin()
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+"Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -15,11 +14,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'sbdchd/neoformat'
 Plug 'neomake/neomake'
 Plug 'machakann/vim-highlightedyank'
-Plug 'justinmk/vim-sneak'
+Plug 'machakann/vim-highlightedyank'
 "Plug 'tmhedberg/SimpylFold'
 Plug 'terryma/vim-multiple-cursors'
 "Plug 'davidhalter/jedi-vim'
 Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'justinmk/vim-sneak'
 call plug#end()
 "call :Neoformat to autoformat python code
 " leader cc to comment a line out
@@ -34,7 +34,9 @@ let g:rainbow_active = 1
 let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
 let base16colorspace=256
+
 let g:sneak#label = 1
+
 inoremap ii <Esc> 
 let mapleader=" "
 :map <Leader> <Space> 
@@ -44,7 +46,7 @@ set tabstop=4 shiftwidth=4 expandtab
 filetype indent on
 filetype plugin on
 set autoindent
-nnoremap S :%s//g<Left><Left>
+"nnoremap S :%s//g<Left><Left>
 set clipboard+=unnamedplus
 set ic
 set nobackup
@@ -102,6 +104,3 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-lua require'colorizer'.setup()
-lua require'colorizer'.setup()
